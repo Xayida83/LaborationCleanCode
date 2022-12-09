@@ -19,5 +19,15 @@ namespace TestLaboration
             //Assert
            
         }
+
+        [TestMethod]
+        public void CheckBCExpectHappyPath()
+        {
+            var sut = new GameLogic();
+
+            var result = sut.CheckBC("1234","1234");
+
+            Assert.AreEqual("BBBB,",result);
+        }
     }
 }

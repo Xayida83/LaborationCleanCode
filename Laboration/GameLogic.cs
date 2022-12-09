@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Laboration.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace Laboration
 {
-    public class GameLogic
+    public class GameLogic : IGameLogic
     {
+        public GameLogic() {}
+
 		public string GenerateGoalNumber()
 		{
 			Random randomGenerator = new Random();

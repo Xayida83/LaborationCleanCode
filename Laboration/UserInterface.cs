@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Laboration.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,18 +11,17 @@ namespace Laboration
     {
         // IO - input and output 
 
-        private readonly Player _player;
-		private readonly GameLogic _logic;
+        //private readonly Player _player;
+		private readonly IGameLogic _logic;
 
-        public UserInterface(Player player, GameLogic logic)
-        {
-            _player = player;
+        public UserInterface(IGameLogic logic)//Player player,
+		{
+            //_player = player;
 			_logic = logic;
         }
-		public static void GamePlay(string[] args)
-		{
-            GameLogic logic = new GameLogic();
 
+		public void GamePlay()
+		{
             bool playOn = true;
 			Console.WriteLine("Enter your user name:\n");
 			string userName = Console.ReadLine();
@@ -29,7 +29,7 @@ namespace Laboration
 			while (playOn)
 			{
 				// change "goal" name everyname that has goal in it 
-				string goal = logic.GenerateGoalNumber();
+				string goal = _logic.GenerateGoalNumber();
 				
 
 
@@ -39,14 +39,14 @@ namespace Laboration
 				string userGuess = Console.ReadLine();
 
 				int numberOfGuesses = 1;
-				string bbcc =  logic.CheckBC(goal, userGuess);
+				string bbcc =  _logic.CheckBC(goal, userGuess);
 				Console.WriteLine(bbcc + "\n");
 				while (bbcc != "BBBB,")
 				{
 					numberOfGuesses++;
 					userGuess = Console.ReadLine();
 					Console.WriteLine(userGuess + "\n");
-					bbcc = logic.CheckBC(goal, userGuess);
+					bbcc = _logic.CheckBC(goal, userGuess);
 					Console.WriteLine(bbcc + "\n");
 				}
 				StreamWriter output = new StreamWriter("result.txt", append: true);
