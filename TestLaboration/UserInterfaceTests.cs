@@ -20,7 +20,7 @@ namespace TestLaboration
             var systemUnderTest = new UserInterface(mockLogic.Object);
 
             //Act
-            systemUnderTest.GamePlay();
+            systemUnderTest.RunTheGame();
 
             //Assert
             Assert.AreEqual("sträng1","sträng1");

@@ -15,7 +15,14 @@ namespace MooGame
             var gameLogic = serviceProvider.GetService<IGameLogic>();
 
             UserInterface userInterface = new(gameLogic);
-            userInterface.GamePlay();
+           // userInterface.GamePlay();
+            while (true)
+            {
+                userInterface.RunTheGame();
+            }
+            
+
+            
 
             //var container = new Container();
 
