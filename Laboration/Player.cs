@@ -20,13 +20,13 @@ namespace Laboration
 			NumberOfGames = 1;
 			totalGuess = guesses;
 		}
-		public void Update(int guesses)
+		
+		public void UpdateGuess(int guesses)
 		{
 			totalGuess += guesses;
 			NumberOfGames++;
 		}
-
-		public double Average()
+		public double ScoreAverage()
 		{
 			return (double)totalGuess / NumberOfGames;
 		}
