@@ -20,7 +20,7 @@ namespace Laboration
 			_logic = logic;
         }
 
-		public void GamePlay()
+		public void InitializeGame()
 		{
             bool playOn = true;
 			Console.WriteLine("Enter your user name:\n");
