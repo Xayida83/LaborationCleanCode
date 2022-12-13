@@ -9,8 +9,14 @@ namespace Laboration.Interfaces
     public interface IPlayer
     {
         string Name { get; }    
+        int NumberOfGames { get; }
         int TotalGuess { get; }
-        void SavePlayer(string userName, int numberOfGuesses);
+        void SavePlayerData(string userName, int numberOfGuesses);
         string TakeUserGuess();
+
+        void UpdateGuess(int guesses);
+		double ScoreAverage();
+        bool Equals(Object p);
+        int GetHashCode();
     }
 }
