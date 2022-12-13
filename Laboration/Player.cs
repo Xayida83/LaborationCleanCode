@@ -21,7 +21,8 @@ namespace Laboration
 			NumberOfGames = 1;
 			TotalGuess = guesses;
 		}
-		
+		public Player(){}
+
 		public void UpdateGuess(int guesses)
 		{
 			TotalGuess += guesses;
@@ -44,7 +45,7 @@ namespace Laboration
 			return Name.GetHashCode();
 		}
 
-		public void SavePlayer(string userName, int numberOfGuesses)
+		public void SavePlayerData(string userName, int numberOfGuesses)
 		{
 			StreamWriter output = new StreamWriter("result.txt", append: true);
 			output.WriteLine(userName + "#&#" + numberOfGuesses);

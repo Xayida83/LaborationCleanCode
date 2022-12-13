@@ -11,6 +11,7 @@ namespace Laboration
     {
         public GameLogic() {}
 
+		// Name change to GenerateRandomNumber / GenerataGameNumber
 		public string GenerateGoalNumber()
 		{
 			Random randomGenerator = new Random();
@@ -30,7 +31,7 @@ namespace Laboration
 		}
 		
 
-		public string CheckBC(string goal, string guess)
+		public string CheckBullsAndCows(string goal, string guess)
 		{
 			int cows = 0, bulls = 0;
 			guess += "    ";     // if player entered less than 4 chars

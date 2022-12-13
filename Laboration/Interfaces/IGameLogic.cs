@@ -3,7 +3,7 @@
     public interface IGameLogic
     {
         string GenerateGoalNumber();
-        string CheckBC(string goal, string guess);
+        string CheckBullsAndCows(string goal, string guess);
         bool ContinueGame(int numberOfGuesses);
 
     }

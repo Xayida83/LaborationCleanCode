@@ -35,18 +35,18 @@ namespace Laboration
 
             string userGuess = string.Empty;
             int numberOfGuesses = 1;
-            string bbcc = _logic.CheckBC(goal, userGuess);
+            string bbcc = _logic.CheckBullsAndCows(goal, userGuess);
             while (bbcc != "BBBB,")
             {
                 numberOfGuesses++;
                 userGuess = _player.TakeUserGuess();
-                bbcc = _logic.CheckBC(goal, userGuess);
+                bbcc = _logic.CheckBullsAndCows(goal, userGuess);
                 Console.WriteLine(bbcc + "\n");
             }
 
-           _player.SavePlayer(userName, numberOfGuesses);
+           _player.SavePlayerData(userName, numberOfGuesses);
             
-            leader.ShowTopList();
+            leader.ShowTopScoreList();
 
             return _logic.ContinueGame(numberOfGuesses);
                         
