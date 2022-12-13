@@ -43,7 +43,8 @@ namespace Laboration
 			return userGuess;
 		}
 
-		public void SavePlayer(string userName, int numberOfGuesses)
+		// metod namn: SavePlayerData
+		public void SavePlayerData(string userName, int numberOfGuesses)
         {
 			StreamWriter output = new StreamWriter("result.txt", append: true);
 			output.WriteLine(userName + "#&#" + numberOfGuesses);
@@ -79,11 +80,12 @@ namespace Laboration
                 Console.WriteLine(bbcc + "\n");
             }
 
-            SavePlayer(userName, numberOfGuesses);
+            SavePlayerData(userName, numberOfGuesses);
+			ShowScoreList();
 
             return ContinueGame(numberOfGuesses);
 
-            ShowTopList();
+            
         }
 
   //      public void GamePlay()
@@ -132,7 +134,9 @@ namespace Laboration
 		//		//}
 		//	}
 		//}
-		static void ShowTopList()
+
+		// ShowScoreList 
+		static void ShowScoreList()
 		{
 			StreamReader input = new StreamReader("result.txt");
 			List<Player> results = new List<Player>();
@@ -142,24 +146,24 @@ namespace Laboration
 				string[] nameAndScore = line.Split(new string[] { "#&#" }, StringSplitOptions.None);
 				string name = nameAndScore[0];
 				int guesses = Convert.ToInt32(nameAndScore[1]);
-				Player pd = new Player(name, guesses);
-				int pos = results.IndexOf(pd);
+				Player playerdata = new Player(name, guesses);
+				int pos = results.IndexOf(playerdata);
 				if (pos < 0)
 				{
-					results.Add(pd);
+					results.Add(playerdata);
 				}
 				else
 				{
-					results[pos].Update(guesses);
+					results[pos].UpdateGuess(guesses);
 				}
 
 
 			}
-			results.Sort((p1, p2) => p1.Average().CompareTo(p2.Average()));
+			results.Sort((p1, p2) => p1.ScoreAverage().CompareTo(p2.ScoreAverage()));
 			Console.WriteLine("Player   games average");
 			foreach (Player p in results)
 			{
-				Console.WriteLine(string.Format("{0,-9}{1,5:D}{2,9:F2}", p.Name, p.NumberOfGames, p.Average()));
+				Console.WriteLine(string.Format("{0,-9}{1,5:D}{2,9:F2}", p.Name, p.NumberOfGames, p.ScoreAverage()));
 			}
 			input.Close();
 		}

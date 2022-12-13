@@ -29,5 +29,8 @@ namespace TestLaboration
 
             Assert.AreEqual("BBBB,",result);
         }
+        
+        //1. Testa att vi får in ett användarnamn 
+        //2. Testa att vi 
     }
 }
