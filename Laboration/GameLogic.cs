@@ -28,6 +28,7 @@ namespace Laboration
 			}
 			return goal;
 		}
+		
 
 		public string CheckBC(string goal, string guess)
 		{
@@ -52,5 +53,19 @@ namespace Laboration
 			}
 			return "BBBB".Substring(0, bulls) + "," + "CCCC".Substring(0, cows);
 		}
+
+		public bool ContinueGame(int numberOfGuesses)
+		{
+			Console.WriteLine("Correct, it took " + numberOfGuesses + " guesses\nContinue?");
+			bool playOn = true;
+			string answer = Console.ReadLine();
+			if (answer != null && answer != "" && answer.Substring(0, 1) == "n")
+			{
+				playOn = false;
+			}
+			return playOn;
+		}
+
+		
 	}
 }

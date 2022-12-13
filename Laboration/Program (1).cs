@@ -10,19 +10,22 @@ namespace MooGame
         {
             var serviceProvider = new ServiceCollection()
             .AddSingleton<IGameLogic, GameLogic>()
+            .AddSingleton<IPlayer, Player>()
             .BuildServiceProvider();
 
             var gameLogic = serviceProvider.GetService<IGameLogic>();
+            var player = serviceProvider.GetService<IPlayer>();
 
-            UserInterface userInterface = new(gameLogic);
-           // userInterface.GamePlay();
+            GameBoard gameBoard = new(gameLogic, player);
+            
+
             while (true)
             {
-                userInterface.RunTheGame();
+                gameBoard.RunTheGame();
             }
-            
 
-            
+
+
 
             //var container = new Container();
 
@@ -185,3 +188,48 @@ namespace MooGame
         }
     }
 }
+    //public class GameBoard
+    //{
+    //    // Private fields for the game board state
+    //    private List<Row> rows;
+    //    private int[] scores;
+
+    //    // Public constructor for initializing the game board
+    //    public GameBoard(int numRows, int numPlayers)
+    //    {
+    //        // Initialize the rows and scores arrays
+    //        rows = new List<Row>(numRows);
+    //        scores = new int[numPlayers];
+
+    //        // Add empty rows to the game board
+    //        for (int i = 0; i < numRows; i++)
+    //        {
+    //            rows.Add(new Row());
+    //        }
+    //    }
+
+        //// Public method for making a guess
+        //public void MakeGuess(int player, List<Peg> guess)
+        //{
+        //    // Check if the guess is valid
+        //    if (IsValidGuess(guess))
+        //    {
+        //        // Add the guess to the game board
+        //        rows[player].AddGuess(guess);
+
+        //        // Check if the guess is correct
+        //        if (IsCorrectGuess(guess))
+        //        {
+        //            // Update the player's score
+        //            scores[player]++;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        // Print an error message if the guess is not valid
+        //        Console.WriteLine("Invalid guess. Please try again.");
+        //    }
+        //}
+
+        //// Other methods and fields for the game board...
+
