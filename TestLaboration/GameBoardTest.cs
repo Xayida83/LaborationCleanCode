@@ -6,24 +6,25 @@ using Moq;
 namespace TestLaboration
 {
     [TestClass]
-    public class UserInterfaceTests
+    public class GameBoardTest
     {
         [TestMethod]
-        public void GamePlay_Happypath()
+        public void PlayTheGame_Happypath()
         {
             //Arrange
             var mockLogic = new Mock<IGameLogic>();
+            var mockPlayer = new Mock<IPlayer>();
 
             mockLogic.Setup(x => x.GenerateGoalNumber())
-            .Returns("1234");            
+            .Returns("1234");
 
-            var systemUnderTest = new UserInterface(mockLogic.Object);
+            var systemUnderTest = new GameBoard(mockLogic.Object, mockPlayer.Object);
 
             //Act
             systemUnderTest.RunTheGame();
 
             //Assert
-            Assert.AreEqual("sträng1","sträng1");
+            Assert.AreEqual("sträng1", "sträng1");
         }
     }
 }
