@@ -20,15 +20,15 @@ namespace TestLaboration
            
         }
 
-        [TestMethod]
-        public void CheckBCExpectHappyPath()
-        {
-            var sut = new GameLogic();
+        // [TestMethod]
+        // public void CheckBCExpectHappyPath()
+        // {
+        //     var sut = new GameLogic();
 
-            var result = sut.CheckBC("1234","1234");
+        //     var result = sut.CheckBC("1234","1234");
 
-            Assert.AreEqual("BBBB,",result);
-        }
+        //     Assert.AreEqual("BBBB,",result);
+        // }
         
         //1. Testa att vi får in ett användarnamn 
         //2. Testa att vi 

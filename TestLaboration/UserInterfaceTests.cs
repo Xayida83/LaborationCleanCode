@@ -8,22 +8,22 @@ namespace TestLaboration
     [TestClass]
     public class UserInterfaceTests
     {
-        [TestMethod]
-        public void GamePlay_Happypath()
-        {
-            //Arrange
-            var mockLogic = new Mock<IGameLogic>();
+        // [TestMethod]
+        // public void GamePlay_Happypath()
+        // {
+        //     //Arrange
+        //     var mockLogic = new Mock<IGameLogic>();
 
-            mockLogic.Setup(x => x.GenerateGoalNumber())
-            .Returns("1234");            
+        //     mockLogic.Setup(x => x.GenerateGoalNumber())
+        //     .Returns("1234");            
 
-            var systemUnderTest = new UserInterface(mockLogic.Object);
+        //     var systemUnderTest = new UserInterface(mockLogic.Object);
 
-            //Act
-            systemUnderTest.RunTheGame();
+        //     //Act
+        //     systemUnderTest.RunTheGame();
 
-            //Assert
-            Assert.AreEqual("sträng1","sträng1");
-        }
+        //     //Assert
+        //     Assert.AreEqual("sträng1","sträng1");
+        // }
     }
 }
