@@ -26,14 +26,17 @@ namespace Laboration
             Console.WriteLine("Enter your user name:\n");
             string userName = Console.ReadLine();
 
+            
             string goal = _logic.GenerateGoalNumber();
 
+            Console.WriteLine("New game:\n");
             Console.WriteLine("For practice, number is: " + goal + "\n");
+            string userGuess = _player.TakeUserGuess();
         
 
             //string goal = GenerateAndWriteOutGoalNumber();
 
-            string userGuess = string.Empty;
+            //string userGuess = string.Empty;
             int numberOfGuesses = 1;
             string bbcc = _logic.CheckBullsAndCows(goal, userGuess);
             while (bbcc != "BBBB,")

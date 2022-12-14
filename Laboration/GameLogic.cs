@@ -57,8 +57,8 @@ namespace Laboration
 
 		public bool ContinueGame(int numberOfGuesses)
 		{
-			Console.WriteLine("Correct, it took " + numberOfGuesses + " guesses\nContinue?");
 			bool playOn = true;
+			Console.WriteLine("Correct, it took " + numberOfGuesses + " guesses\nContinue?");
 			string answer = Console.ReadLine();
 			if (answer != null && answer != "" && answer.Substring(0, 1) == "n")
 			{
