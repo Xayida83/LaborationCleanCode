@@ -17,9 +17,10 @@ namespace MooGame
             var player = serviceProvider.GetService<IPlayer>();
 
             GameBoard gameBoard = new(gameLogic, player);
-            
+            //gameBoard.RunTheGame();
+            //bool playOn = true;
 
-            while (true)
+            while (gameBoard.RunTheGame())
             {
                 gameBoard.RunTheGame();
             }

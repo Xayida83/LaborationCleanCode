@@ -17,7 +17,7 @@ namespace Laboration
 
 		public Player(string name, int guesses)
 		{
-			Name = name;
+			this.Name = name;
 			NumberOfGames = 1;
 			TotalGuess = guesses;
 		}
@@ -34,9 +34,13 @@ namespace Laboration
 		}
 
 
-		public override bool Equals(Object p)
+		// public override bool Equals(Object p)
+		// {
+		// 	return p is Player data && Name.Equals(data.Name);
+		// }
+		 public override bool Equals(Object p)
 		{
-			return p is Player data && Name.Equals(data.Name);
+			return Name.Equals(((Player)p).Name);
 		}
 
 
