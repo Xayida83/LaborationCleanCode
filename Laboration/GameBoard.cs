@@ -31,7 +31,7 @@ namespace Laboration
 
             Console.WriteLine("New game:\n");
             Console.WriteLine("For practice, number is: " + goal + "\n");
-            string userGuess = _player.TakeUserGuess();
+            string userGuess = Console.ReadLine();
         
 
             //string goal = GenerateAndWriteOutGoalNumber();
@@ -39,6 +39,7 @@ namespace Laboration
             //string userGuess = string.Empty;
             int numberOfGuesses = 1;
             string bbcc = _logic.CheckBullsAndCows(goal, userGuess);
+            System.Console.WriteLine(bbcc + "\n");
             while (bbcc != "BBBB,")
             {
                 numberOfGuesses++;
@@ -54,6 +55,7 @@ namespace Laboration
             return _logic.ContinueGame(numberOfGuesses);
                         
         }
+
        
     }
 }
