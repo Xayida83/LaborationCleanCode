@@ -18,12 +18,15 @@ namespace MooGame
 
             GameBoard gameBoard = new(gameLogic, player);
             //gameBoard.RunTheGame();
-            //bool playOn = true;
+            bool playOn = true;
 
-            while (gameBoard.RunTheGame())
+            while (playOn)
             {
-                gameBoard.RunTheGame();
+                playOn = gameBoard.RunTheGame();
             }
+        }
+    }
+}
 
 
 
