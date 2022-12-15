@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace Laboration
 {
-	public class GameBoard
-	{
+    public class GameBoard
+    {
         private readonly IGameLogic _logic;
         private readonly IPlayer _player;
         //public Leaderboard _leaderboard;
@@ -26,13 +26,13 @@ namespace Laboration
             Console.WriteLine("Enter your user name:\n");
             string userName = Console.ReadLine();
 
-            
+
             string goal = _logic.GenerateGoalNumber();
 
             Console.WriteLine("New game:\n");
             Console.WriteLine("For practice, number is: " + goal + "\n");
             string userGuess = Console.ReadLine();
-        
+
 
             //string goal = GenerateAndWriteOutGoalNumber();
 
@@ -48,15 +48,14 @@ namespace Laboration
                 Console.WriteLine(bbcc + "\n");
             }
 
-           _player.SavePlayerData(userName, numberOfGuesses);
-            
+            _player.SavePlayerData(userName, numberOfGuesses);
+
             leader.ShowTopScoreList();
 
             return _logic.ContinueGame(numberOfGuesses);
-                        
         }
 
-       
+
     }
 }
 

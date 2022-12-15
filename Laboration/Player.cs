@@ -11,7 +11,6 @@ namespace Laboration
     {
 		public string Name { get; set; }
 		public int NumberOfGames { get; private set; }
-		
 		public int TotalGuess { get; private set; }
 
 
@@ -34,22 +33,23 @@ namespace Laboration
 		}
 
 
-		// public override bool Equals(Object p)
-		// {
-		// 	return p is Player data && Name.Equals(data.Name);
-		// }
-		 public override bool Equals(Object p)
-		{
-			return Name.Equals(((Player)p).Name);
-		}
+        // public override bool Equals(Object p)
+        // {
+        // 	return p is Player data && Name.Equals(data.Name);
+        // }
+
+        public override bool Equals(Object p)
+        {
+            return Name.Equals(((Player)p).Name);
+        }
 
 
-		public override int GetHashCode()
-		{
-			return Name.GetHashCode();
-		}
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode();
+        }
 
-		public void SavePlayerData(string userName, int numberOfGuesses)
+        public void SavePlayerData(string userName, int numberOfGuesses)
 		{
 			StreamWriter output = new StreamWriter("result.txt", append: true);
 			output.WriteLine(userName + "#&#" + numberOfGuesses);
