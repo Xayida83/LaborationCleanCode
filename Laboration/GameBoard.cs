@@ -11,12 +11,11 @@ namespace Laboration
     {
         private readonly IGameLogic _logic;
         private readonly IPlayer _player;
-        //public Leaderboard _leaderboard;
-        Leaderboard leader = new Leaderboard();
+        private readonly ILeaderboard _leader;
 
-        public GameBoard(IGameLogic logic, IPlayer player/* Leaderboard leaderboard*/)
+        public GameBoard(IGameLogic logic, IPlayer player, ILeaderboard leader)
         {
-            //_leaderboard = leaderboard;
+            _leader = leader;
             _player = player;
             _logic = logic;
         }
@@ -33,13 +32,10 @@ namespace Laboration
             Console.WriteLine("For practice, number is: " + goal + "\n");
             string userGuess = Console.ReadLine();
 
-
-            //string goal = GenerateAndWriteOutGoalNumber();
-
-            //string userGuess = string.Empty;
             int numberOfGuesses = 1;
             string bbcc = _logic.CheckBullsAndCows(goal, userGuess);
             System.Console.WriteLine(bbcc + "\n");
+
             while (bbcc != "BBBB,")
             {
                 numberOfGuesses++;
@@ -50,7 +46,7 @@ namespace Laboration
 
             _player.SavePlayerData(userName, numberOfGuesses);
 
-            leader.ShowTopScoreList();
+            _leader.ShowTopScoreList();
 
             return _logic.ContinueGame(numberOfGuesses);
         }

@@ -11,7 +11,6 @@ namespace Laboration
     {
         public GameLogic() {}
 
-		// Name change to GenerateRandomNumber / GenerataGameNumber
 		public string GenerateGoalNumber()
 		{
 			Random randomGenerator = new Random();
@@ -66,8 +65,5 @@ namespace Laboration
 			}
 			return playOn;
 		}
-
-
-		
 	}
 }

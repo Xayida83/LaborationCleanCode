@@ -10,8 +10,8 @@ namespace Laboration
     public class Player : IPlayer
     {
 		public string Name { get; set; }
-		public int NumberOfGames { get; private set; }
-		public int TotalGuess { get; private set; }
+		public int NumberOfGames { get; set; }
+		public int TotalGuess { get; set; }
 
 
 		public Player(string name, int guesses)

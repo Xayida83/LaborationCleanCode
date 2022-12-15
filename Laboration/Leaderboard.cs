@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Laboration.Interfaces;
 
 namespace Laboration
 {
-    public class Leaderboard
+    public class Leaderboard : ILeaderboard
     {
 		public void ShowTopScoreList()
 		{
