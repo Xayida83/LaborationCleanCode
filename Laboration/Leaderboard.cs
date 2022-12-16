@@ -20,15 +20,14 @@ namespace Laboration
 				string name = nameAndScore[0];
 				int guesses = Convert.ToInt32(nameAndScore[1]);
 				Player playerData = new Player(name, guesses);
-				//Change name pos to position / scorePosition?
-				int pos = results.IndexOf(playerData);
-				if (pos < 0)
+				int position = results.IndexOf(playerData);
+				if (position < 0)
 				{
 					results.Add(playerData);
 				}
 				else
 				{
-					results[pos].UpdateGuess(guesses);
+					results[position].UpdateGuess(guesses);
 				}
 
 
@@ -40,6 +39,13 @@ namespace Laboration
 				Console.WriteLine(string.Format("{0,-9}{1,5:D}{2,9:F2}", p.Name, p.NumberOfGames, p.ScoreAverage()));
 			}
 			input.Close();
+		}
+
+		 public void SavePlayerData(string userName, int numberOfGuesses)
+		{
+			StreamWriter output = new StreamWriter("result.txt", append: true);
+			output.WriteLine(userName + "#&#" + numberOfGuesses);
+			output.Close();
 		}
 	}
 }

@@ -13,13 +13,12 @@ namespace TestLaboration
         {
             //Arrange
             var mockLogic = new Mock<IGameLogic>();
-            var mockPlayer = new Mock<IPlayer>();
             var mockLeader = new Mock<ILeaderboard>();
 
             mockLogic.Setup(x => x.GenerateGoalNumber())
             .Returns("1234");
 
-            var systemUnderTest = new GameBoard(mockLogic.Object, mockPlayer.Object, mockLeader.Object);
+            var systemUnderTest = new GameBoard(mockLogic.Object, mockLeader.Object);
 
             //Act
             systemUnderTest.RunTheGame();

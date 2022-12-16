@@ -11,8 +11,6 @@ namespace Laboration.Interfaces
         string Name { get; }    
         int NumberOfGames { get; set;}
         int TotalGuess { get; set;}
-        void SavePlayerData(string userName, int numberOfGuesses);
-        string TakeUserGuess();
 
         void UpdateGuess(int guesses);
 		double ScoreAverage();

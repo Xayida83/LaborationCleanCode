@@ -8,5 +8,6 @@ namespace Laboration.Interfaces
     public interface ILeaderboard
     {
         void ShowTopScoreList();
+        void SavePlayerData(string userName, int numberOfGuesses);
     }
 }

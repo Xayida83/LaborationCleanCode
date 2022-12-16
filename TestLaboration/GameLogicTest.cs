@@ -27,8 +27,6 @@ namespace TestLaboration
         public void GenerateGoalNumber_ShouldReturnUniqueNumber()
         {
             // Arrange
-            var mockPlayer = new Mock<IPlayer>();
-
             var mockLeaderBoard = new Mock<ILeaderboard>();
 
             var mockGameLogic = new Mock<IGameLogic>();
@@ -36,7 +34,6 @@ namespace TestLaboration
 
             var gameboard = new GameBoard(
                 mockGameLogic.Object, 
-                mockPlayer.Object, 
                 mockLeaderBoard.Object);
 
             // Act
@@ -51,7 +48,6 @@ namespace TestLaboration
         public void CheckBullsAndCows_ShouldReturnAllBulls()
         {
             // Arrange
-
             var sut = new GameLogic();
             string goal = "1234";
             string guess = "1234";
@@ -97,29 +93,19 @@ namespace TestLaboration
         }
 
         [TestMethod]
-        public void ContinueGame_ShouldReturnTrueForContinueGame()
+        public void CheckBullsAndCows_ShouldReturnNoBullsOrCows()
         {
-            //// Arrange
-            //var sut = new GameLogic();
-            //int numberOfGuesses = 2;
-            //bool expected = true;
+            // Arrange
+            var sut = new GameLogic();
+            string goal = "1234";
+            string guess = "5678";
+            string expected = ",";
 
-            //using (var input = new StringReader("yes\n"))
-            //{
-            //    Console.SetIn(input);
+            // Act
+            string result = sut.CheckBullsAndCows(goal, guess);
 
-            //    // Act
-            //    bool result = sut.ContinueGame(numberOfGuesses);
-
-            //    // Assert
-            //    Assert.IsTrue(expected, result);
-            //}
-        }
-
-        [TestMethod]
-        public void ContinueGame_ShouldReturnFalseForContinueGame()
-        {
-
+            // Assert
+            Assert.AreEqual(expected, result);
         }
 
     }

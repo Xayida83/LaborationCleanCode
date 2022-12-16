@@ -62,6 +62,7 @@ namespace Laboration
 			if (answer != null && answer != "" && answer.Substring(0, 1) == "n")
 			{
 				playOn = false;
+
 			}
 			return playOn;
 		}
