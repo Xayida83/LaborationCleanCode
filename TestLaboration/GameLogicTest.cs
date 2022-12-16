@@ -22,7 +22,6 @@ namespace TestLaboration
             Assert.IsTrue(goal.Length == 4);
         }
 
-        // Den fungerar ej 
         [TestMethod]
         public void GenerateGoalNumber_ShouldReturnUniqueNumber()
         {

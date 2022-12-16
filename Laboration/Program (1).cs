@@ -10,24 +10,16 @@ namespace MooGame
         {
             var serviceProvider = new ServiceCollection()
             .AddSingleton<IGameLogic, GameLogic>()
-            .AddSingleton<IPlayer, Player>()
             .AddSingleton<ILeaderboard, Leaderboard>()
             .BuildServiceProvider();
 
             var gameLogic = serviceProvider.GetService<IGameLogic>();
-            var player = serviceProvider.GetService<IPlayer>();
             var leaderboard = serviceProvider.GetService<ILeaderboard>();
 
 
             GameBoard gameBoard = new(gameLogic, leaderboard);
             gameBoard.RunTheGame();
 
-            // bool playOn = true;
-
-            // while (playOn)
-            // {
-            //     playOn = gameBoard.RunTheGame();
-            // }
         }
     }
 }

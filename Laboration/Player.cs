@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Laboration
 {
-    public class Player : IPlayer
+    public class Player 
     {
 		public string Name { get; set; }
 		public int NumberOfGames { get; set; }
@@ -31,12 +31,6 @@ namespace Laboration
 		{
 			return (double)TotalGuess / NumberOfGames;
 		}
-
-
-        // public override bool Equals(Object p)
-        // {
-        // 	return p is Player data && Name.Equals(data.Name);
-        // }
 
         public override bool Equals(Object p)
         {
