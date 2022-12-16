@@ -29,6 +29,8 @@ namespace Laboration
                 string goal = GetRandomNumber();
 
                 Console.WriteLine("New game:\n");
+                
+                //comment out or remove next line to play real games!
                 Console.WriteLine("For practice, number is: " + goal + "\n");
                 string userGuess = Console.ReadLine();
 
