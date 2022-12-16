@@ -19,14 +19,15 @@ namespace MooGame
             var leaderboard = serviceProvider.GetService<ILeaderboard>();
 
 
-            GameBoard gameBoard = new(gameLogic, player, leaderboard);
-            //gameBoard.RunTheGame();
-            bool playOn = true;
+            GameBoard gameBoard = new(gameLogic, leaderboard);
+            gameBoard.RunTheGame();
 
-            while (playOn)
-            {
-                playOn = gameBoard.RunTheGame();
-            }
+            // bool playOn = true;
+
+            // while (playOn)
+            // {
+            //     playOn = gameBoard.RunTheGame();
+            // }
         }
     }
 }

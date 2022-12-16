@@ -48,17 +48,5 @@ namespace Laboration
             return Name.GetHashCode();
         }
 
-        public void SavePlayerData(string userName, int numberOfGuesses)
-		{
-			StreamWriter output = new StreamWriter("result.txt", append: true);
-			output.WriteLine(userName + "#&#" + numberOfGuesses);
-			output.Close();
-		}
-
-        public string TakeUserGuess()
-        {
-            string userGuess = Console.ReadLine();
-            return userGuess;
-        }
     }
 }

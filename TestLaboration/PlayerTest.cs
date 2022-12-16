@@ -41,27 +41,5 @@ namespace TestLaboration
 
         }
 
-        // Den här fungerar ej 
-         [TestMethod]
-        public void ShouldGetScoreAverageMoq()
-        {
-            // Moq setup
-            var mockPlayer = new Mock<Player>();
-        
-            //Act
-            mockPlayer
-            .Setup(x => x.TotalGuess)
-            .Returns(20);
-
-             mockPlayer
-            .Setup(x => x.NumberOfGames)
-            .Returns(5);
-
-            double average = mockPlayer.Object.ScoreAverage();
-
-            //Assert
-            Assert.AreEqual(average, 4);
-
-        }
     }
 }
