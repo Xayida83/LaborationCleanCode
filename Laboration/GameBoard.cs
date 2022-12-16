@@ -20,28 +20,32 @@ namespace Laboration
             _logic = logic;
         }
 
+        public string GetRandomNumber()
+        {
+            return _logic.GenerateGoalNumber();
+        }
+
         public bool RunTheGame()
         {
             Console.WriteLine("Enter your user name:\n");
             string userName = Console.ReadLine();
 
-
-            string goal = _logic.GenerateGoalNumber();
+            string goal = GetRandomNumber();
 
             Console.WriteLine("New game:\n");
             Console.WriteLine("For practice, number is: " + goal + "\n");
             string userGuess = Console.ReadLine();
 
             int numberOfGuesses = 1;
-            string bbcc = _logic.CheckBullsAndCows(goal, userGuess);
-            System.Console.WriteLine(bbcc + "\n");
+            string bullOrCows = _logic.CheckBullsAndCows(goal, userGuess);
+            System.Console.WriteLine(bullOrCows + "\n");
 
-            while (bbcc != "BBBB,")
+            while (bullOrCows != "BBBB,")
             {
                 numberOfGuesses++;
                 userGuess = _player.TakeUserGuess();
-                bbcc = _logic.CheckBullsAndCows(goal, userGuess);
-                Console.WriteLine(bbcc + "\n");
+                bullOrCows = _logic.CheckBullsAndCows(goal, userGuess);
+                Console.WriteLine(bullOrCows + "\n");
             }
 
             _player.SavePlayerData(userName, numberOfGuesses);

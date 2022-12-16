@@ -43,7 +43,6 @@ namespace Laboration
             return Name.Equals(((Player)p).Name);
         }
 
-
         public override int GetHashCode()
         {
             return Name.GetHashCode();

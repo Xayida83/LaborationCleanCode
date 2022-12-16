@@ -21,18 +21,27 @@ namespace TestLaboration
             // Assert
             Assert.IsTrue(goal.Length == 4);
         }
-      
+
         // Den fungerar ej 
         [TestMethod]
         public void GenerateGoalNumber_ShouldReturnUniqueNumber()
         {
-            // Setup mocks
-             var gameLogicMock = new Mock<GameLogic>();
-             gameLogicMock.Setup(r => r.GenerateGoalNumber()).Returns("1234");
-
             // Arrange
-            string goal = gameLogicMock.Object.GenerateGoalNumber();
-           
+            var mockPlayer = new Mock<IPlayer>();
+
+            var mockLeaderBoard = new Mock<ILeaderboard>();
+
+            var mockGameLogic = new Mock<IGameLogic>();
+            mockGameLogic.Setup(r => r.GenerateGoalNumber()).Returns("1234");
+
+            var gameboard = new GameBoard(
+                mockGameLogic.Object, 
+                mockPlayer.Object, 
+                mockLeaderBoard.Object);
+
+            // Act
+            var goal = gameboard.GetRandomNumber();
+
             // Assert
             Assert.AreEqual("1234", goal);
         }
@@ -70,7 +79,7 @@ namespace TestLaboration
             // Assert
             Assert.AreEqual(expected, result);
         }
-        
+
         [TestMethod]
         public void CheckBullsAndCows_ShouldReturnBullsAndCows()
         {
@@ -90,21 +99,21 @@ namespace TestLaboration
         [TestMethod]
         public void ContinueGame_ShouldReturnTrueForContinueGame()
         {
-            //  // Arrange
-            // var sut = new GameLogic();
-            // int numberOfGuesses = 2;
-            // bool expected = true;
+            //// Arrange
+            //var sut = new GameLogic();
+            //int numberOfGuesses = 2;
+            //bool expected = true;
 
-            // using (var input = new StringReader("yes\n"))
-            // {
-            //     Console.SetIn(input);
+            //using (var input = new StringReader("yes\n"))
+            //{
+            //    Console.SetIn(input);
 
-            //     // Act
-            //     bool result = sut.ContinueGame(numberOfGuesses);
+            //    // Act
+            //    bool result = sut.ContinueGame(numberOfGuesses);
 
-            //     // Assert
-            //     Assert.IsTrue(expected, result);
-            // }
+            //    // Assert
+            //    Assert.IsTrue(expected, result);
+            //}
         }
 
         [TestMethod]
@@ -112,6 +121,6 @@ namespace TestLaboration
         {
 
         }
-       
+
     }
 }

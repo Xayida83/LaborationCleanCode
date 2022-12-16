@@ -52,6 +52,7 @@ namespace TestLaboration
             mockPlayer
             .Setup(x => x.TotalGuess)
             .Returns(20);
+
              mockPlayer
             .Setup(x => x.NumberOfGames)
             .Returns(5);
