@@ -11,39 +11,41 @@ namespace Laboration
     {
         private readonly IGameLogic _logic;
         private readonly ILeaderboard _leader;
+        private readonly IUserInterface _ui;
 
-        public GameBoard(IGameLogic logic, ILeaderboard leader)
+        public GameBoard(IGameLogic logic, ILeaderboard leader, IUserInterface ui)
         {
             _leader = leader;
             _logic = logic;
+            _ui = ui;
         }
 
         public void RunTheGame()
         {
-            Console.WriteLine("Enter your user name:\n");
-            string userName = Console.ReadLine();
+            _ui.PutString("Enter your user name:\n");
+            string userName = _ui.GetString().Trim();
 
             bool playOn = true;
             while(playOn)
             {
                 string goal = GetRandomNumber();
 
-                Console.WriteLine("New game:\n");
+                _ui.PutString("New game:\n");
                 
                 //comment out or remove next line to play real games!
-                Console.WriteLine("For practice, number is: " + goal + "\n");
-                string userGuess = Console.ReadLine();
+                _ui.PutString("For practice, number is: " + goal + "\n");
+                string userGuess = _ui.GetString().Trim();
 
                 int numberOfGuesses = 1;
                 string bullOrCows = _logic.CheckBullsAndCows(goal, userGuess);
-                System.Console.WriteLine(bullOrCows + "\n");
+                _ui.PutString(bullOrCows + "\n");
 
                 while (bullOrCows != "BBBB,")
                 {
                     numberOfGuesses++;
-                    userGuess = Console.ReadLine();
+                    userGuess =  _ui.GetString().Trim();
                     bullOrCows = _logic.CheckBullsAndCows(goal, userGuess);
-                    Console.WriteLine(bullOrCows + "\n");
+                    _ui.PutString(bullOrCows + "\n");
                 }
 
                 _leader.SavePlayerData(userName, numberOfGuesses);

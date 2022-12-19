@@ -11,13 +11,15 @@ namespace MooGame
             var serviceProvider = new ServiceCollection()
             .AddSingleton<IGameLogic, GameLogic>()
             .AddSingleton<ILeaderboard, Leaderboard>()
+            .AddSingleton<IUserInterface, ConsoleIO>()
             .BuildServiceProvider();
 
             var gameLogic = serviceProvider.GetService<IGameLogic>();
             var leaderboard = serviceProvider.GetService<ILeaderboard>();
+            var ui = serviceProvider.GetService<IUserInterface>();
 
 
-            GameBoard gameBoard = new(gameLogic, leaderboard);
+            GameBoard gameBoard = new(gameLogic, leaderboard, ui);
             gameBoard.RunTheGame();
 
         }
