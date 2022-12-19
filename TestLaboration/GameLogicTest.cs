@@ -23,17 +23,20 @@ namespace TestLaboration
         }
 
         [TestMethod]
-        public void GenerateGoalNumber_ShouldReturnUniqueNumber()
+        public void GenerateGoalNumber_ShouldReturnUniqueNumbers()
         {
             // Arrange
             var mockLeaderBoard = new Mock<ILeaderboard>();
-
             var mockGameLogic = new Mock<IGameLogic>();
+            var mockUserInterface = new Mock<IUserInterface>();
+
             mockGameLogic.Setup(r => r.GenerateGoalNumber()).Returns("1234");
 
             var gameboard = new GameBoard(
                 mockGameLogic.Object, 
-                mockLeaderBoard.Object);
+                mockLeaderBoard.Object,
+                mockUserInterface.Object
+                );
 
             // Act
             var goal = gameboard.GetRandomNumber();
