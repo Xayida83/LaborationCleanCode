@@ -32,27 +32,24 @@ namespace Laboration
 
 		public string CheckBullsAndCows(string goal, string guess)
 		{
-			int cows = 0, bulls = 0;
-			guess += "    ";     // if player entered less than 4 chars
-			for (int i = 0; i < 4; i++)
+			
+			guess += "";
+			int numBulls = 0, numCows = 0;
+			foreach (var (guessNumber, goalNumber) in goal.Zip(guess, (guessNumber, goalNumber) => (guessNumber, goalNumber)))
 			{
-				for (int j = 0; j < 4; j++)
+				if (guessNumber == goalNumber)
 				{
-					if (goal[i] == guess[j])
-					{
-						if (i == j)
-						{
-							bulls++;
-						}
-						else
-						{
-							cows++;
-						}
-					}
+					numBulls++;
+				}
+				else if (goal.Contains(goalNumber))
+				{
+					numCows++;
 				}
 			}
-			return "BBBB".Substring(0, bulls) + "," + "CCCC".Substring(0, cows);
+
+			return "BBBB".Substring(0, numBulls) + "," + "CCCC".Substring(0, numCows);
 		}
+
 
 		public bool ContinueGame(int numberOfGuesses)
 		{
